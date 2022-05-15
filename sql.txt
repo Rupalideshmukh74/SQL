@@ -34,6 +34,55 @@ mysql> insert into student_info values ("Pankaj","Deshmukh","1985-12-15",9730143
 Query OK, 1 row affected (0.09 sec)
 
 mysql> select * from student_info;
+mysql> ALTER TABLE student_info  ADD address varchar(40) NOT NULL;
+Query OK, 4 rows affected (0.31 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from student_info;
++--------+----------+------------+------------+---------+
+| Name   | Lastname | dob        | mobile     | address |
++--------+----------+------------+------------+---------+
+| Rupali | Deshmukh | 1993-04-07 | 9096741141 |         |
+| Pankaj | Deshmukh | 1985-12-15 | 973014391  |         |
+| Rupali | Deshmukh | 1993-04-07 | 9096741141 |         |
+| Pankaj | Deshmukh | 1985-12-15 | 9730014391 |         |
++--------+----------+------------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE student_info  MODIFY Lastname varchar(50) NULL;
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student_info;
++--------+----------+------------+------------+---------+
+| Name   | Lastname | dob        | mobile     | address |
++--------+----------+------------+------------+---------+
+| Rupali | Deshmukh | 1993-04-07 | 9096741141 |         |
+| Pankaj | Deshmukh | 1985-12-15 | 973014391  |         |
+| Rupali | Deshmukh | 1993-04-07 | 9096741141 |         |
+| Pankaj | Deshmukh | 1985-12-15 | 9730014391 |         |
++--------+----------+------------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE student_info  DROP COLUMN address;
+Query OK, 4 rows affected (0.24 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from student_info;
++--------+----------+------------+------------+
+| Name   | Lastname | dob        | mobile     |
++--------+----------+------------+------------+
+| Rupali | Deshmukh | 1993-04-07 | 9096741141 |
+| Pankaj | Deshmukh | 1985-12-15 | 973014391  |
+| Rupali | Deshmukh | 1993-04-07 | 9096741141 |
+| Pankaj | Deshmukh | 1985-12-15 | 9730014391 |
++--------+----------+------------+------------+
+4 rows in set (0.00 sec)
+
+mysql>
+
+
+
 +--------+----------+------------+------------+
 | Name   | Lastname | dob        | mobile     |
 +--------+----------+------------+------------+
