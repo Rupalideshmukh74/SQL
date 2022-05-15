@@ -143,6 +143,96 @@ mysql> select * from ShirtBrands;
 |    1 | Pantaloons | 38   |
 |    2 | Cantabil   | 40   |
 +------+------------+------+
+mysql> use database;
+Database changed
+mysql> CREATE TABLE Persons (
+    ->     ID int NOT NULL,
+    ->     Name varchar(45) NOT NULL,
+    ->     Age int CHECK (Age>=18)
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> desc Persons;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| ID    | int(11)     | NO   |     | NULL    |       |
+| Name  | varchar(45) | NO   |     | NULL    |       |
+| Age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.14 sec)
+
+mysql> INSERT INTO Persons(Id, Name, Age)
+    -> VALUES (1,'Robert', 28), (2, 'Joseph', 35), (3, 'Peter', 40);
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from Persons
+    -> ;
++----+--------+------+
+| ID | Name   | Age  |
++----+--------+------+
+|  1 | Robert |   28 |
+|  2 | Joseph |   35 |
+|  3 | Peter  |   40 |
++----+--------+------+
+3 rows in set (0.00 sec)
+
+
+mysql>
+
+mysql> use database;
+Database changed
+mysql> CREATE TABLE Persons (
+    ->     ID int NOT NULL,
+    ->     Name varchar(45) NOT NULL,
+    ->     Age int CHECK (Age>=18)
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> desc Persons;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| ID    | int(11)     | NO   |     | NULL    |       |
+| Name  | varchar(45) | NO   |     | NULL    |       |
+| Age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.14 sec)
+
+mysql> INSERT INTO Persons(Id, Name, Age)
+    -> VALUES (1,'Robert', 28), (2, 'Joseph', 35), (3, 'Peter', 40);
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from Persons
+    -> ;
++----+--------+------+
+| ID | Name   | Age  |
++----+--------+------+
+|  1 | Robert |   28 |
+|  2 | Joseph |   35 |
+|  3 | Peter  |   40 |
++----+--------+------+
+3 rows in set (0.00 sec)
+
+mysql>  INSERT INTO Persons(Id, Name, Age) VALUES (1,'Robert', 15);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from Persons;
++----+--------+------+
+| ID | Name   | Age  |
++----+--------+------+
+|  1 | Robert |   28 |
+|  2 | Joseph |   35 |
+|  3 | Peter  |   40 |
+|  1 | Robert |   15 |
++----+--------+------+
+4 rows in set (0.00 sec)
+
+mysql>
+
+
 2 rows in set (0.00 sec)
 +--------+----------+------------+------------+
 | Name   | Lastname | dob        | mobile     |
