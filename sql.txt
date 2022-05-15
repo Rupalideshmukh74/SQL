@@ -83,6 +83,67 @@ mysql>
 
 
 
+mysql> CREATE TABLE Student(Id INTEGER, LastName TEXT NOT NULL, FirstName TEXT NOT NULL, City VARCHAR(35));
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> desc Student;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Id        | int(11)     | YES  |     | NULL    |       |
+| LastName  | text        | NO   |     | NULL    |       |
+| FirstName | text        | NO   |     | NULL    |       |
+| City      | varchar(35) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.05 sec)
+
+mysql> INSERT INTO Student VALUES(1, 'Hanks', 'Peter', 'New York');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> INSERT INTO Student VALUES(2, NULL, 'Amanda', 'Florida');
+ERROR 1048 (23000): Column 'LastName' cannot be null
+mysql> INSERT INTO Student VALUES(2, Rupali, 'Amanda', 'Florida');
+ERROR 1054 (42S22): Unknown column 'Rupali' in 'field list'
+mysql> INSERT INTO Student VALUES(2, 'Rupali', 'Amanda', 'Florida');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> CREATE TABLE ShirtBrands(Id INTEGER, BrandName VARCHAR(40) UNIQUE, Size VARCHAR(30));
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> desc ShirtBrans;
+ERROR 1146 (42S02): Table 'student.shirtbrans' doesn't exist
+mysql> desc ShirtBrands;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Id        | int(11)     | YES  |     | NULL    |       |
+| BrandName | varchar(40) | YES  | UNI | NULL    |       |
+| Size      | varchar(30) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.05 sec)
+
+mysql> INSERT INTO ShirtBrands(Id, BrandName, Size) VALUES(1, 'Pantaloons', 38), (2, 'Cantabil', 40);
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> desc ShirtBrands;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Id        | int(11)     | YES  |     | NULL    |       |
+| BrandName | varchar(40) | YES  | UNI | NULL    |       |
+| Size      | varchar(30) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.05 sec)
+
+mysql> select * from ShirtBrands;
++------+------------+------+
+| Id   | BrandName  | Size |
++------+------------+------+
+|    1 | Pantaloons | 38   |
+|    2 | Cantabil   | 40   |
++------+------------+------+
+2 rows in set (0.00 sec)
 +--------+----------+------------+------------+
 | Name   | Lastname | dob        | mobile     |
 +--------+----------+------------+------------+
