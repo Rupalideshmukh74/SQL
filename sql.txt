@@ -1,0 +1,49 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| database           |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+6 rows in set (0.01 sec)
+
+mysql> use student;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_student |
++-------------------+
+| student_info      |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from student_info;
++--------+----------+------------+------------+
+| Name   | Lastname | dob        | mobile     |
++--------+----------+------------+------------+
+| Rupali | Deshmukh | 1993-04-07 | 9096741141 |
++--------+----------+------------+------------+
+1 row in set (0.07 sec)
+
+
+mysql> insert into student_info values ("Pankaj","Deshmukh","1985-12-15",973014391);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from student_info;
++--------+----------+------------+------------+
+| Name   | Lastname | dob        | mobile     |
++--------+----------+------------+------------+
+| Rupali | Deshmukh | 1993-04-07 | 9096741141 |
+| Pankaj | Deshmukh | 1985-12-15 | 973014391  |
++--------+----------+------------+------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
